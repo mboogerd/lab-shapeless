@@ -42,7 +42,7 @@ scala> case class Agent(firstName: String, lastName: String, human: Boolean)
 defined class Agent
 
 scala> val agentGen = Generic[Agent]
-agentGen: shapeless.Generic[Agent]{type Repr = shapeless.::[String,shapeless.::[String,shapeless.::[Boolean,shapeless.HNil]]]} = anon$macro$4$1@54c1707d
+agentGen: shapeless.Generic[Agent]{type Repr = shapeless.::[String,shapeless.::[String,shapeless.::[Boolean,shapeless.HNil]]]} = anon$macro$4$1@342a1b76
 ```
 
 And Generic supports type-safe conversion from the given representation to a generic one
@@ -64,7 +64,7 @@ agentInstance2: Agent = Agent(Merlijn,Boogerd,true)
 Given that tuples really are case classes, `Generic` works for them as well
 ```scala
 scala> val tupledAgentGen = Generic[(String, String, Boolean)]
-tupledAgentGen: shapeless.Generic[(String, String, Boolean)]{type Repr = shapeless.::[String,shapeless.::[String,shapeless.::[Boolean,shapeless.HNil]]]} = anon$macro$8$1@e898ad8
+tupledAgentGen: shapeless.Generic[(String, String, Boolean)]{type Repr = shapeless.::[String,shapeless.::[String,shapeless.::[Boolean,shapeless.HNil]]]} = anon$macro$8$1@43629d59
 
 scala> tupledAgentGen.from(genericAgent)
 res3: (String, String, Boolean) = (Merlijn,Boogerd,true)
@@ -76,7 +76,7 @@ scala> case class Collective(agents: List[Agent])
 defined class Collective
 
 scala> val collectiveGen = Generic[Collective]
-collectiveGen: shapeless.Generic[Collective]{type Repr = shapeless.::[List[Agent],shapeless.HNil]} = anon$macro$10$1@65746da6
+collectiveGen: shapeless.Generic[Collective]{type Repr = shapeless.::[List[Agent],shapeless.HNil]} = anon$macro$10$1@2d7f432c
 
 scala> collectiveGen.to(Collective(List(agentInstance, agentInstance.copy(human = false))))
 res4: collectiveGen.Repr = List(Agent(Merlijn,Boogerd,true), Agent(Merlijn,Boogerd,false)) :: HNil

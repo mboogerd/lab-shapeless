@@ -34,15 +34,15 @@ import Second._
 
 scala> // Out is erased
      | implicitly[Second[String :: Int :: HNil]]
-res2: Second[shapeless.::[String,shapeless.::[Int,shapeless.HNil]]] = Second$$anon$1@269aac33
+res2: Second[shapeless.::[String,shapeless.::[Int,shapeless.HNil]]] = Second$$anon$1@4e9a1c5d
 
 scala> // Out is preserved
      | Second[String :: Int :: HNil]
-res4: Second[shapeless.::[String,shapeless.::[Int,shapeless.HNil]]]{type Out = Int} = Second$$anon$1@7fc1ddff
+res4: Second[shapeless.::[String,shapeless.::[Int,shapeless.HNil]]]{type Out = Int} = Second$$anon$1@3f81c239
 
 scala> // And is dependent on the implicit parameter supplied to Second.apply
      | Second[Int :: String :: HNil]
-res6: Second[shapeless.::[Int,shapeless.::[String,shapeless.HNil]]]{type Out = String} = Second$$anon$1@1a77da3d
+res6: Second[shapeless.::[Int,shapeless.::[String,shapeless.HNil]]]{type Out = String} = Second$$anon$1@75b7e60d
 ```
 
 Finally, `the` is a method provided by Shapeless to perform this implicit resolution in a erasure-safe and concise way:
@@ -51,6 +51,6 @@ scala> import shapeless._
 import shapeless._
 
 scala> the[Second[String :: Int :: HNil]]
-res7: Second.Aux[shapeless.::[String,shapeless.::[Int,shapeless.HNil]],Int] = Second$$anon$1@55af814e
+res7: Second.Aux[shapeless.::[String,shapeless.::[Int,shapeless.HNil]],Int] = Second$$anon$1@17cc0175
 ```
 

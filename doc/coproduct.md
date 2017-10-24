@@ -49,7 +49,7 @@ scala> case class Oven(id: String, price: Double) extends Appliance
 defined class Oven
 
 scala> val gen = Generic[Appliance]
-gen: shapeless.Generic[Appliance]{type Repr = shapeless.:+:[Microwave,shapeless.:+:[Dishwasher,shapeless.:+:[Oven,shapeless.CNil]]]} = anon$macro$1$1@3fafd62f
+gen: shapeless.Generic[Appliance]{type Repr = shapeless.:+:[Microwave,shapeless.:+:[Dishwasher,shapeless.:+:[Oven,shapeless.CNil]]]} = anon$macro$1$1@506f3b3f
 ```
 
 which we can use to map back and from the generic and concrete representation:

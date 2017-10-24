@@ -1,6 +1,6 @@
 package com.github.mboogerd.csv
 
-import shapeless.{ ::, Generic, HList, HNil, Lazy }
+import shapeless.{ ::, Generic, HList, HNil, LabelledGeneric, Lazy }
 
 /**
  *
